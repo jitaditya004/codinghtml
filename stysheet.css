@@ -1,0 +1,377 @@
+
+h1{font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+               font-size:20px;}
+
+h2  {color:blue}
+body {
+    background-color: #eee;
+}
+
+.transparentbox {
+    position: relative;         /* Make sure ::before positions inside this box */
+    color: white;               /* Make text readable */
+    padding: 20px;
+    width: 300px;
+    height: 150px;                      /* dot used as class is used      else used hash tag*/
+    font-family: sans-serif;
+    margin: 50px auto;
+}
+
+.transparentbox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;                            /*boxx*/
+    right: 0;
+    bottom: 0;
+    background-color: #0f3;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+
+#header{ border: 30px solid black; width:100px; height:200px;
+     color:coral;}
+#middle{ font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    
+}
+
+#middle p{text-indent: 50px;
+   
+}
+
+
+
+ p {margin-bottom: 25 px; 
+   margin-top: 25px; 
+   margin-right: 15px; 
+   margin-left: 15px;}
+
+
+ p {margin-bottom: 25 px; 
+   margin-top: 25px; 
+   margin-right: 15px; 
+   margin-left: 15px;}
+
+
+blockquote{ padding-bottom: 25px;
+     padding-top: 25px; 
+   padding-right: 25px; 
+   padding-left: 25px;}
+
+
+
+  #CampDescription {text-align:right;}
+
+
+  .exam { word-spacing:30em; }
+
+
+  a:link{color:blue;}
+  a:visited {color: purple;} 
+a:hover {color: orange;} 
+a:active {color: red;}
+
+ a.navlinks:link {color: white;} 
+a.navlinks:visited {color: gray;}              /*ONLY FOR 'A' LINK WITH CLASS,NOT DIV*/
+a.navlinks:hover {color: rgb(8, 59, 40);} 
+a.navlinks:active {color: rgb(153, 13, 200);}
+
+
+.navlinks a:link { color: white; }
+.navlinks a:visited { color: gray; }
+.navlinks /*a:hover { color: rgb(8, 59, 40); }*/ a:hover {color: rgb(0, 17, 255); 
+font-weight: bold; 
+text-decoration: none; 
+background-color: rgb(0, 255, 13);}
+.navlinks a:active { color: rgb(153, 13, 200); }      /*use this for all class*/
+
+
+ img {border-width: 5;}
+
+ /* .headshot {border-style: double; 
+           border-left-style:dotted; 
+           border-right-style:ridge; 
+           border-width: 10px; 
+           border-left-width: 20px; 
+           border-right-width: 5px; 
+           border-color: #C00;
+          }*/
+
+/*
+          .headshot {
+    border-style: double;
+    border-left-style: dotted;
+    border-right-style: ridge;
+    border-width: 10px;
+    border-left-width: 20px;                              /*FOR DIFFERENT LINES BUT SAME BRODER
+    border-right-width: 30px;
+    border-color: #C00;
+    margin-bottom: 20px; /*Adds space between images *****
+    clear: both; /*ensures each .headshot is on a new line ****
+    display: inline-block; /* Optional: for better layout control 
+  }
+
+*/
+
+.headshot {
+    border-style: double;
+    border-left-style: dotted;
+    border-right-style: ridge;
+    border-width: 10px;                         /*SAME BORDER ON SAME LINE*/
+    border-left-width: 20px;
+    border-right-width: 5px;
+    border-color: #C00;
+    display: inline-block; /* Keep items side-by-side */
+    margin: 10px;           /* Space between images */
+  }
+
+
+  .headshot img {
+    width: 270px;
+    height: 480px;
+    display: block;
+  }
+
+ .thumbnail {float: left; padding: 15px;}     
+
+
+  img.cement {display: block; margin-left: auto; margin-right: auto;}
+
+
+  /*
+  
+  body {background-image: url("file:///C:/Users/jitad/Desktop/picture2/We%20are%20falling%20in%20the%20.jpg");}  */   
+
+
+   /* body {background-image: url("file:///C:/Users/jitad/Desktop/picture/Anime%20girl%20%20(30).jpg"); 
+      background-attachment: fixed; 
+      background-repeat: no-repeat;}*/
+
+ img.centered {display: block; margin-left: auto; margin-right: auto;}  /*center class*/
+
+
+/*.mod li{ /*list-style-image: url(); list-style-position:inside;}*/
+
+.mod li {
+     /* list-style-position: inside; */                     /*NOT WORKINGGG*/
+      list-style-type: decimal-leading-zero; /* Optional: show zero before decimal numbers// lower roman , upper roman, upper alpha,  */
+    }
+
+
+
+     .mod ul{
+      background:#0f3;
+      margin: 15px;
+      padding: 3px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+
+    .mod ul{
+      border-style:solid;
+      border-width: medium;
+      border-color:rgb(244, 4, 248);
+    }
+
+    .mod li{
+      border-style:dashed;
+      border-width: medium;
+      border-color:black;
+    }
+
+    .mod li{
+      color:rgb(9, 0, 81);
+      background:#ccc;
+      margin:12px;
+      padding: 12px 0px 12px 12px;    /*NO GAPS IN 12PX*/
+      list-style:none;
+    }
+
+
+
+
+
+
+
+#example {  
+      font-family:Verdana, Arial, Helvetica, sans-serif; 
+      font-size: 10pt;  
+      } 
+#navlist { 
+      /*width: 250px; */
+      padding-left: 0;  
+      margin-left: 20px; 
+      border-bottom: 2px solid #a6a5a7; 
+      } 
+#navlist li { 
+      list-style: none; 
+      margin: 0; 
+      border-top: 1px solid #666666; 
+      line-height: 200%;   /*the distance of line from text*/
+      }
+#navlist li a { 
+      color: #990000;  /*text color*/
+      display: block;   /*start to width specified, takes all of it*/
+      padding-left: 5px;  
+      text-decoration: none;  
+       } 
+#navlist li a:hover {  
+ color: #ffffff;  
+ background-color: #333333; 
+       } 
+.active {  
+       background-color: #990000; 
+       color: #ffffff; 
+       font-weight: bold; 
+       padding-left: 5px; 
+       }                                /*213*/
+
+
+
+
+
+#eg2 { 
+    font-family:Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 10pt; 
+    } 
+#navlist22 { 
+    margin: 0; 
+    padding: 0; 
+    text-align: center; 
+    } 
+#navlist22 li { 
+    list-style: none; 
+    display: inline; /*no line breaks, width and height ignored, padding and margin (vertical) both ignored, multiple elements together*/
+    } 
+#navlist22 li a { 
+    color: #fff; 
+    background-color: #900; 
+    padding: .2em 1em; 
+    text-decoration: none; 
+    } 
+#navlist22 li a:hover { 
+    color: #ffffff; 
+    background-color: #333333; 
+    } 
+.active1 { 
+    border: 1px solid #900; 
+    color: #900; 
+    font-weight: bold; 
+    padding: .2em 1em; 
+    } 
+
+
+
+    td {font-family: verdana; 
+    font-size: 10pt;} 
+
+
+ .testing {
+            border: 3px solid rgb(221, 23, 23);
+        }
+       .testing td {
+            width: 50px;
+            height: 100px;
+            text-align: center;
+            vertical-align: middle;
+        }
+      .testing  img {
+            max-width: 100%;
+            height: auto;
+        }  
+
+
+.float-right {
+    float: right;
+    width: 200px;
+    height: 200px;
+    border: 10px solid rgb(7, 171, 23);
+    margin-left: 5px; /* Adds spacing from text */
+  }
+
+  .float-right td {
+    border: 10px solid rgb(132, 15, 228);
+    text-align: center;
+  }
+
+  .test22 {
+    font-family: Verdana;
+  }
+
+ .float-right {
+  background-color: aqua;
+ } 
+
+ /* table {background-image: url('images/stripes.gif');*/
+ 
+ .testing {
+  background-image: url('https://www.bing.com/th/id/OGC.4a794af823608b06b3b35ad8371e4737?pid=1.7&rurl=https%3a%2f%2fwww.gifcen.com%2fwp-content%2fuploads%2f2022%2f06%2fanime-girl-gif-5.gif&ehk=a6%2fZQovd1KlATYxuCBcj26OtzRn0pXt1VaODzK2Z7zc%3d');
+  width:500px;
+  height:281px;
+  /*margin-left:auto; 
+  margin-right:auto;*/
+  
+ }
+
+
+
+ .testing td img{
+  width:85px;
+  height:50px;
+ }
+
+ /*.testing table{  border-spacing: 45px;
+    border-collapse: separate;}
+
+ .testing td{
+  padding:30px;
+ }   */
+
+ .ezez  caption {text-align: right; caption-side: bottom;}
+
+
+.tableeg td{
+  text-align: '.';
+  
+}
+
+ .left {text-align: left; vertical-align: top;} 
+.right {text-align: right; vertical-align: bottom;} 
+.center {text-align: center; vertical-align: middle;}
+
+/*th--table header*/
+.uni{background-color: rgb(109, 235, 109);}   /*248*/
+
+
+/*th {width: 33%;}*/
+
+/*.no-wrap td{
+  white-space: nowrap;
+}
+WRONG AS IT TARGETS A TD INSIDE CLASS NO-WRAP, CAN BE TABLE  
+*/
+
+td.no-wrap{                         /*NO SPACE BEWEEN TD AND .CLASSNAME ,IF TD FRONT*/
+  white-space: nowrap;
+  border: 1px solid black;
+  padding: 5px;    /*TARGET ONLY THOSE TD HAVING NO-WRAP CLASS*/
+}
+
+
+.body1 {font-family: verdana;} 
+.body1 thead {background-color: black; 
+   color: white;} 
+.body1 tbody {background-color: #ccc;} 
+.body1 tfoot {font-size: 10pt; 
+   font-style: italic;}
+
+
+.coleg colgroup#group1 {width:50px;}  /*tag and class or id name together , if tag front*/
+.coleg colgroup#group2 {width:25px}   
+
+
+.body2 colgroup#tuition {width: 80px;}
+.body2 colgroup col#base {background-color: #C00;} 
+.body2 colgroup col#books {width: 25px;} 
+.body2 colgroup col#total {background-color: yellow;}    /*PERCENTAGE AS WIDTH WORKS IF ALREADY WIDTH OF MAIN BODY OR TABLE OR COLGROUP SET*/
