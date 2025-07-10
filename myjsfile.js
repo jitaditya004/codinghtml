@@ -1210,7 +1210,7 @@ definitely not the fault of this poor misunderstood and misused function.*/
  let youGotThis = function () {
  console.log("You're doing really well, keep coding!");
  };
- setTimeout(youGotThis, 1000); //waiting 1000ms=1sec
+ setTimeout(youGotThis, 60000); //waiting 1000ms=1sec
 //setInterval(youGotThis, 1000); 
 
 
@@ -1461,3 +1461,617 @@ result. The next method will then be performed on the result. So for example:*/
   .replace("THERE", "you")  //any case of there replaced
   .concat(" You're amazing!")
  );
+
+
+isNaN("123");  // false  (string gets converted to number 123)
+isNaN("abc");  // true   (can't convert to number, becomes NaN)
+Number.isNaN("abc");  // false  ("abc" is not NaN — it's a string)
+Number.isNaN(NaN);    // true   (only true if the value is exactly NaN)
+
+//number is a object containing helper functions
+
+
+/*. A URI (uniform resource identifier) is an identifier of 
+a certain resource. URL (uniform resource locator) is a subcategory of URI that is not 
+only an identifier, but also holds the information on how to access it (location).*/
+
+
+ let uri = "https://www.example.com/submit?name=maaike van putten";
+ let encoded_uri = encodeURI(uri);
+ console.log("Encoded:", encoded_uri);
+ let decoded_uri = decodeURI(encoded_uri);
+ console.log("Decoded:", decoded_uri);
+
+ /* This is great for fixing broken URIs, but it's actually a bit useless whenever you need 
+to encode strings that contain any of these characters: / , ? : @ & = + $ #. These can 
+be used in URIs as part of the URI and are therefore skipped. This is where the next 
+two built-in methods come in handy.*/
+
+
+/*Weird value, we can agree on that, but it will demonstrate our problem. Using 
+encodeURI on this will leave us with: 
+https://www.example.com/submit?name=this&that=some%20thing&code=love
+ There are actually 3 variables in here according to URI standards:
+ • name (value is this)
+ • that (value is some thing)
+ • code (value is love)
+ While we intended to send in one variable, name, with the value this&that=some 
+thing&code=love.*/
+
+ let uri1 = "https://www.example.com/submit?name=maaike van putten";
+ let encoded_uri1 = encodeURIComponent(uri1);
+ console.log("Encoded:", encoded_uri1);
+ let decoded_uri1 = decodeURIComponent(encoded_uri1);
+ console.log("Decoded:", decoded_uri1);
+
+  let str_int = "6";
+ let int_int = parseInt(str_int);
+ console.log("Type of ", int_int, "is", typeof int_int);
+
+  let str_float = "7.6";
+ let int_float = parseInt(str_float);
+ console.log("Type of", int_float, "is", typeof int_float);
+ let str_binary = "0b101";
+ let int_binary = parseInt(str_binary);    //stops parsing as soon as it sees dot and 'b'
+ console.log("Type of", int_binary, "is", typeof int_binary);
+
+ let str_nan = "hello!";
+ let int_nan = parseInt(str_nan);
+ console.log("Type of", int_nan, "is", typeof int_nan);
+
+ str_float = "7.6";
+ let float_float = parseFloat(str_float);
+ console.log("Type of", float_float, "is", typeof float_float);
+
+
+ let str_version_nr = "2.3.4";
+ let float_version_nr = parseFloat(str_version_nr);
+ console.log("Type of", float_version_nr, "is", typeof float_version_nr);
+
+// document.body.style.backgroundColor = "pink";
+
+
+
+  arr = ["grapefruit", 4, "hello", 5.6, true];
+
+ function printStuff(element, index) {
+  console.log("Printing stuff:", element, "on array position:", index);
+ }
+
+ arr.forEach(printStuff); //this executes them, didnt need to give index
+
+
+ /* We can use the built-in filter() method on an array to alter which values are in the 
+array. The filter method takes a function as an argument, and this function should 
+return a Boolean. If the Boolean has the value true, the element will end up in the 
+filtered array. If the Boolean has the value false, the element will be left out. */
+//202
+
+ arr = ["squirrel", 5, "Tjed", new Date(), true];
+ function checkString(element, index) {
+  return typeof element === "string";
+ }
+ let filterArr = arr.filter(checkString);
+ console.log(filterArr);
+
+console.log(arr.every(checkString)); // This will log false, since not all elements are of type string in the array.
+
+
+
+ arr = ["grapefruit", 4, "hello", 5.6, true];
+ arr.copyWithin(0, 3, 4); 
+ console.log(arr);
+/*arr.copyWithin(target, start, end);
+target: Index to copy data to.
+
+start: Index to start copying from (inclusive).
+
+end: Index to stop copying at (exclusive).*/
+ arr = ["grapefruit", 4, "hello", 5.6, true];
+ arr.copyWithin(0, 3, 5);
+console.log(arr);
+
+arr = ["grapefruit", 4, "hello", 5.6, true, false];
+ arr.copyWithin(0, 3); //no end mentioned, takes up to end of sequence by default
+ console.log(arr);
+
+
+  arr = [1, 2, 3, 4];
+ let mapped_arr = arr.map(x => x + 1);
+ console.log(mapped_arr);
+
+
+ //indexOf
+  let bb = ["so", "bye", "bye", "love"];
+ console.log(bb.lastIndexOf("bye"));
+
+  bb = ["so", "bye", "bye", "love"];
+ console.log(bb.lastIndexOf("hi")); //-1
+
+  let s1 = "Hello ";
+ let s2 = "JavaScript";
+  result = s1.concat(s2);
+ console.log(result);
+
+  result = "Hello JavaScript";
+ let arr_result = result.split(" "); //makes array, items split when in string " " gap is seen.
+ console.log(arr_result);
+
+ ///207
+
+ let favoriteFruits1 = "strawberry,watermelon,grapefruit";
+let arr_fruits = favoriteFruits1.split(",");
+ console.log(arr_fruits);
+
+//array to string
+ let letters = ["a", "b", "c"];
+ let x = letters.join(); //comma by default
+ console.log(x);
+
+   letters = ["a", "b", "c"];
+  x = letters.join('-');
+ console.log(x);
+
+
+
+  let poem = "Roses are red, violets are blue, if I can do JS, then you can too!";
+            
+ let index_re = poem.indexOf("re");
+ console.log(index_re); //first occurence is at 'are'
+
+  let indexNotFound = poem.indexOf("python");
+ console.log(indexNotFound); //-1
+
+
+  let searchStr = "When I see my fellow, I say hello";
+ let pos = searchStr.search("lo"); //first index
+ console.log(pos); //-1 if not found
+
+/* search() will accept a regex format as input, whereas indexOf() just takes a string. 
+indexOf() is faster than the search() method, so if you just need to look for a string, 
+use indexOf(). If you need to look for a string pattern, you'll have to use the search() 
+method*/
+
+str = "abc123";
+console.log(str.search(/\d+/));  // 3 (matches "123")
+console.log(str.search(/x/));    // -1
+//regex supported
+
+
+ let lastIndex_re = poem.lastIndexOf("re");
+ console.log(lastIndex_re);
+
+  let pos1 = poem.charAt(10);
+ console.log(pos1);
+
+  let pos2 = poem.charAt(1000);
+ console.log(pos2); //empty line
+
+ str = "Create a substring";
+ let substr1 = str.slice(5);
+ let substr2 = str.slice(0,3); ///3 excluded
+ console.log("1:", substr1);
+ console.log("2:", substr2);
+
+  let hi = "Hi buddy";
+ let new_hi = hi.replace("buddy", "Pascal");
+ console.log(new_hi);
+
+  let new_hi2 = hi.replace("not there", "never there");
+ console.log(new_hi2);//original returned, as not found
+
+  let s3 = "hello hello";
+ let new_s3 = s3.replace("hello", "oh");  //only first hello replaced
+ console.log(new_s3);
+
+  s3 = "hello hello";
+  new_s3 = s3.replaceAll("hello", "oh");  //replaces all
+ console.log(new_s3);
+
+let low_bye = "bye!";
+ let up_bye = low_bye.toUpperCase();
+ console.log(up_bye);
+
+  let caps = "HI HOW ARE YOU?";
+ let fixed_caps = caps.toLowerCase();
+ console.log(fixed_caps);
+
+ caps= "HI HOW ARE YOU?";
+ fixed_caps = caps.toLowerCase();
+ let first_capital = fixed_caps.charAt(0).toUpperCase().concat(fixed_caps.slice(1));
+
+ console.log(first_capital);
+
+ /*let caps = "HI HOW ARE YOU?";
+
+// Step 1: Make everything lowercase first
+let fixed_caps = caps.toLowerCase();
+
+// Step 2: Split into words
+let words = fixed_caps.split(" ");
+
+// Step 3: Manually fix words
+words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);  // Capitalize first word
+words[1] = "HOW";  // Restore HOW to uppercase
+
+// Step 4: Join back into a sentence
+let result = words.join(" ");
+
+console.log(result);  // Output: "Hi HOW are you?"*/
+
+
+ let encouragement = "You are doing great, keep up the good work!";
+ let bool_start = encouragement.startsWith("You");
+ console.log(bool_start);
+
+  let bool_start2 = encouragement.startsWith("you");
+ console.log(bool_start2); //case sensitive
+
+  let bool_start3 = encouragement.toLowerCase().startsWith("you");
+ console.log(bool_start3);
+
+  let bool_end = encouragement.endsWith("Something else");
+ console.log(bool_end);
+
+ x = 34;
+ console.log(isNaN(x)); //false as its number
+ console.log(!isNaN(x));
+ str = "hi";
+ console.log(isNaN(str));
+
+ str1 = "5";
+ console.log(isNaN(str1)); //still false, as its a number, crazy lol
+
+
+ /* isFinite(). It returns false for NaN, Infinity, and 
+undefined, and true for all other values:*/
+
+  x = 3;
+  str = "finite";
+ console.log(isFinite(x)); //only number finite
+ console.log(isFinite(str)); //string is not finite, NaN
+ console.log(isFinite(Infinity));
+ console.log(isFinite(10 / 0));
+
+
+ x = 3;
+ str = "integer";
+ console.log(Number.isInteger(x));
+ console.log(Number.isInteger(str));
+ console.log(Number.isInteger(Infinity));
+ console.log(Number.isInteger(2.4));
+
+
+ x = 1.23456;
+ let newX = x.toFixed(2); 
+ console.log(x, newX);
+
+   x = 1.23456;
+  newX = x.toFixed(3);   
+console.log(x, newX);  //round off, 3 is only decimal digits
+
+ x = 1.23456;
+ newX = x.toPrecision(2);
+ console.log(newX);
+
+x = 1.23456;
+ newX = x.toPrecision(4); 
+console.log(newX);  //rounds off too, 4 includes decimal part as well as int part
+
+
+ let highest = Math.max(2, 56, 12, 1, 233, 4);
+ console.log(highest);
+
+  let lowest = Math.min(2, 56, 12, 1, 233, 4);
+ console.log(lowest);
+
+  let highestOfWords = Math.max("hi", 3, "bye");
+ console.log(highestOfWords);//not ignoring text,it cant decide if the text is higher or lower
+
+   result = Math.sqrt(64);
+ console.log(result);
+
+ result2 = Math.pow(5, 3);
+ console.log(result2);
+
+
+ x = 6.78;
+ let y = 5.34;
+ console.log("X:", x, "becomes", Math.round(x));
+ console.log("Y:", y, "becomes", Math.round(y));
+
+  console.log("X:", x, "becomes", Math.ceil(x));
+ console.log("Y:", y, "becomes", Math.ceil(y));
+
+  let negativeX = -x;
+ let negativeY = -y;
+ console.log("negativeX:", negativeX, "becomes", Math.ceil(negativeX));
+ console.log("negativeY:", negativeY, "becomes", Math.ceil(negativeY));
+
+  console.log("negativeX:", negativeX, "becomes", Math.floor(negativeX));
+ console.log("negativeY:", negativeY, "becomes", Math.floor(negativeY));
+
+  console.log("X:", x, "becomes", Math.trunc(x));
+ console.log("Y:", y, "becomes", Math.trunc(y));
+
+   x = 2;
+ let exp = Math.exp(x);
+ console.log("Exp:", exp);
+ let log = Math.log(exp); //log(e^2)=2
+ console.log("Log:", log);
+
+
+
+//date
+
+
+ let currentDateTime = new Date(); //constructor
+ console.log(currentDateTime);
+
+  let now2 = Date.now(); 
+ console.log(now2);
+ /* This will log the current time, represented in seconds since January 1st 1970. This is 
+an arbitrary date representing the Unix epoch*/
+
+  let milliDate = new Date(1000);
+ console.log(milliDate);  //Creates a date from milliseconds since 1970-01-01T00:00:00.000Z (Unix Epoch time)
+/*We can add 1,000 milliseconds to the Unix epoch time*/
+
+let stringDate = new Date("Sat Jun 05 2021 12:40:12 GMT+0200");
+ console.log(stringDate);
+
+/* you can also specify a certain date using the constructor:*/
+ let specificDate = new Date(2022, 1, 10, 12, 10, 15, 100);
+ console.log(specificDate);
+
+ /* 2022-02-10T12:10:15.100Z means
+ Part	------Meaning
+2022-02-10	----📅 Date: 10th February 2022
+T------	⏱ Separator between date and time
+12:10:15.100------	🕐 Time: 12 hours, 10 minutes, 15.100 seconds
+Z	------🌍 Zulu Time (UTC) — means it's in Coordinated Universal Time (UTC+0)*/
+
+
+ let d = new Date();
+ console.log("Day of week:", d.getDay());
+ console.log("Day of month:", d.getDate());
+ console.log("Month:", d.getMonth());
+ console.log("Year:", d.getFullYear());
+ console.log("Seconds:", d.getSeconds());
+ console.log("Milliseconds:", d.getMilliseconds());
+ console.log("Time:", d.getTime());
+
+  d.setFullYear(2010);
+ console.log(d);
+
+ d.setMonth(9);
+ console.log(d);
+
+
+ d.setDate(10);
+ console.log(d);
+
+  d.setHours(10); //more than 24? rolls over to next date
+ console.log(d);
+
+ d.setTime(1622889770682);
+ console.log(d);
+
+ let date = new Date(1609459200000);
+console.log(date.toString());//Convert Epoch to Date,,Output: "Fri Jan 01 2021 05:30:00 GMT+0530 (India Standard Time)
+let now = new Date();
+console.log(now.getTime());// e.g., 1720455300000
+
+
+  let d1 = Date.parse("June 5, 2021");
+ console.log(d1);
+let d2 = Date.parse("6/5/2021");
+ console.log(d2);
+/*it ends with many zeros, because no time or seconds are specified in 
+our string.  input for the parse is ISO formats of dates.*/
+
+
+// date to a string
+console.log(d.toDateString());
+
+ console.log(d.toLocaleDateString());
+
+
+ //console.dir(window)
+ /* The console.dir() method shows a list of all the properties of the specified object.*/
+ //238
+ // window.history.length;  console.dir(window.history)  console.dir(history)
+/*If you visit other pages or click links before running history.length, it might become 2, 3, etc.*/
+// window.history.go(-1); //go back to prev page
+// console.dir(window.navigator);  console.dir(navigator);
+
+//console.dir(window.location) or console.dir(location)
+
+
+/*In JavaScript:
+
+== is the loose equality operator (allows type coercion).
+
+=== is the strict equality operator (no type coercion; compares both value and type).
+
+5 === 5         // true (same value, same type)
+5 === '5'       // false (different types: number vs string)
+
+5 == '5'        // true (string '5' is converted to number 5)
+0 == false      // true (both are falsy values)
+null == undefined // true (special case)
+
+*/
+
+//243
+// console.dir(document);
+
+/* The document.querySelector() method will return the first element within the 
+document that matches the specified selectors. If no matching page elements are 
+found, the result null is returned.  To return multiple matching elements, you can 
+use the method document.querySelectorAll().*/
+
+ const ele1 = document.querySelector("h2"); //null if not found
+ console.dir(ele1);
+
+  const eles = document.querySelectorAll(".testing");  //we selected a instances of class testing
+ console.log(eles); //nodelist if dom not ready or not present. my script was before so timing issue
+
+
+
+
+
+
+
+ document.addEventListener("DOMContentLoaded", function () {  //selects when all dom loaded
+  
+  
+  
+  const ele1 = document.querySelector("h2");
+  console.dir(ele1);
+
+  const eles = document.querySelectorAll(".testing");
+  console.log(eles);
+
+ // type in console //console.dir(document.body.children.forest.children.tree2.children.shrubbery.children.treasure);
+/* 
+const treasure = document.getElementById("treasure");
+console.dir(treasure);
+*/
+const tree2 = document.getElementById("tree2");  //using children maybe be problem as whitespace also counts
+const shrubbery = tree2.children[0]; // shrubbery
+const treasure = shrubbery.children[0]; // treasure
+console.dir(treasure);
+
+
+/*
+const treasure = document.querySelector("#forest #tree2 #shrubbery #treasure");
+console.dir(treasure);
+*/
+
+
+//document.getElementById("tree2").parentElement;
+
+//document.querySelector("#tree2").parentElement; //tree2's parent is #forest > #tree2 → parent = #forest
+
+
+
+const parent = document.getElementById("tree2").parentElement;   //move up node
+console.log(parent.id); // should print "forest;; if u use 'parent', full DOM element are printed
+
+
+
+const tree22 = document.querySelector("#forest #tree2");
+console.log(tree22);
+
+const tree23 = document.getElementById("tree2");
+const tree1 = tree23.previousElementSibling;  //.previousElementSibling walks one element left in the DOM
+console.log(tree1); // <div id="tree1">...</div>
+
+const tree14 = document.getElementById("tree1");
+const tree24 = tree14.nextElementSibling; 
+console.log(tree24);
+
+
+
+/*In console----or console.log(dont work)
+
+document.body.children.greeting;
+document.body.children.greeting.innerText = "Bye!"; //innerText property focuses on the text between the opening and closing of the 
+element,
+document.body.children.greeting.innerText = "<p>Bye!</p>";
+
+
+ document.body.children.greeting.innerHTML = "<b>Bye!</b>"; //html code works
+
+
+
+ document.getElementById("two"); //more than one?then first one is returned
+
+document.getElementsByTagName("div");
+
+ document.getElementsByTagName("div").item(1); ///access them by index, start is 0.
+
+document.getElementsByTagName("div").namedItem("one");
+
+document.getElementsByTagName("h1");
+
+document.getElementsByClassName("example");
+
+ document.querySelectorAll("p");
+
+  document.querySelectorAll("p.example"); //selects all p elements with example as class.
+
+   document.querySelector("div");
+
+ document.querySelector(".something"); 1st elemnt of class something
+ 
+ document.querySelectorAll("div");
+
+
+
+
+
+
+*/
+
+ 
+
+});
+
+
+/*
+type in console---
+
+console.dir(document.body.childNodes[3].childNodes[3].childNodes[1].
+ childNodes[1]);
+
+  console.dir(document.body.childNodes[3].childNodes[3].childNodes[1].
+ children.treasure);
+
+  document.body.children.forest.children.tree2.parentElement;
+
+ document.body.children.forest.children.tree2;
+
+document.body.children.forest.children.tree2.previousElementSibling;
+
+ document.body.children.forest.children.tree1.nextElementSibling;
+ */
+
+
+
+
+ //console.dir(document.body);
+
+
+
+
+//to html
+ function stop(){
+        alert("Ouch! Stop it!");
+  }
+
+
+document.addEventListener("DOMContentLoaded",function(){
+
+
+    document.getElementById("one2").onclick = function () {       
+      alert("Auch! Stop!"); 
+    } 
+    //263
+
+
+
+    
+})
+
+
+ function reveal(el){     //normal function
+        console.log(el);
+  }
+
+
+   function reveal2(el){
+ console.log(el.parentElement);
+ }
+

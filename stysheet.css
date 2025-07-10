@@ -375,3 +375,30 @@ td.no-wrap{                         /*NO SPACE BEWEEN TD AND .CLASSNAME ,IF TD F
 .body2 colgroup col#base {background-color: #C00;} 
 .body2 colgroup col#books {width: 25px;} 
 .body2 colgroup col#total {background-color: yellow;}    /*PERCENTAGE AS WIDTH WORKS IF ALREADY WIDTH OF MAIN BODY OR TABLE OR COLGROUP SET*/
+
+
+
+#seee {
+  /*max-height: 100px;  /* Set a height limit */
+  /*overflow-y: scroll;   /* Enable vertical scroll if content overflows, can be 'auto' */
+  overflow:scroll;
+  border: 1px solid #ccc; /* Optional: just to make it visible */
+  padding: 10px;
+   width: 150px;   /* Controls column width */
+  height: 100px;  /* Controls row height */       /* Optional: spacing inside */
+}
+
+
+/* We are going to make a button that will toggle the appearing and disappearing of 
+a line of text. To hide something using CSS, we can set the display property of the 
+element to none, like this for a p (paragraph) element:
+ p {
+ display: none;
+ }
+ And we can toggle it back to visible using:
+ p {
+ display: block;
+ }*/
+
+ 
+

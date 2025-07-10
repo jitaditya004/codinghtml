@@ -12,6 +12,25 @@
         <script type="text/javascript" src="myjsfile.js"></script>
     
 
+          <input onchange="go(this)"></input>   
+        <script>
+            function go(e) {
+            eval(e.value);
+            }
+        </script>
+
+        <!--This creates an input field.
+
+    When the user changes its value (e.g. types something and presses Enter or clicks away), it calls the go(this) function and passes the input element (this) as an argument.
+    
+    This defines a function go that takes the input element e.
+
+    e.value is the text the user typed.
+
+    eval(e.value) will execute that text as JavaScript code.-->
+
+
+
     </head>
     <body>
         <div id="header">
@@ -1090,9 +1109,163 @@ from the top one flows into the bottom one.</td>
 
 
 
+<br /><br />
+
+ <form> 
+   <input type="text" /> 
+</form>
+
+
+<br /><br />
+ <form> 
+   Please enter your first name: <input type="text" /><br /> 
+   Please enter your last name: <input type="text" /> 
+</form>
+<br />
+ <form> 
+Please enter your first name: <input type="text" name="FirstName" /> 
+<br /> 
+Please enter your last name: <input type="text" name="LastName" /> 
+</form>
+
+<br />
+ <form> 
+<input type="text" name="FirstName" value="Enter First Name" /><br /> 
+<input type="text" name="LastName" value="Enter Last Name" size="39" 
+/> 
+</form>
+
+<!-- maxlength:
+Limits the number of characters a user can actually enter.
+
+It does NOT affect the visible size of the input field.
+
+ size (for <input>):
+Defines the visible width of the input field (in number of characters).
+
+It does NOT limit how many characters a user can enter.
+
+It's about how big the input box looks.-->
+
+
+<br />
+ <form> 
+Please enter your username: <input type="text" name="UserName"><br /> 
+Please enter your password: <input type="password" name="Password"> 
+</form>
+
+<br />
+
+ <form> 
+We welcome your thoughts and opinions about our products.<br /> 
+<textarea name="Comments"></textarea> 
+</form>
+<!--multiple line text area-->
+
+<br />
+ <form> 
+We welcome your thoughts and opinions about our products.<br /> 
+<textarea name="Comments" cols="30" rows="5">Type your comments 
+here.</textarea> 
+</form>
+
+
+<!--294-->
 
 
 
+
+<!--js example start-->
+ <div id="forest">
+      <div id="tree1">
+        <div id="squirrel"></div>
+        <div id="flower"></div>
+      </div>
+      <div id="tree2">
+        <div id="shrubbery">
+          <div id="treasure"></div>
+        </div>
+        <div id="mushroom">
+          <div></div> 
+        </div>
+      </div>
+    </div>
+
+
+
+
+ <h1>Welcome page</h1>
+    <p id="greeting">
+      Hi!
+    </p>
+
+
+  <h1>Just an example</h1>
+    <div id="one" class="example">Hi!</div>
+    <div id="two" class="example">Hi!</div>
+    <div id="three" class="something">Hi!</div>    
+
+
+
+
+    <div id="one" onclick="alert('Ouch! Stop it!')">Don't click here! 
+    </div>       <!--click to get message, run any function-->
+
+
+ <div id="one" onclick="stop()">Don't click here!</div>
+
+
+
+ <div id="one2">Don't click here!</div>
+
+
+
+
+  <button onclick="reveal(this)">Click here!</button>
+  <!-- The this keyword always has a relative meaning; it depends on the exact context 
+it is in.-->
+
+<button onclick="reveal2(this)">Click here!</button>
+
+
+
+
+<!--JS example ends-->
+
+<!--294-->
+<br />
+
+
+<form id="myform"> 
+
+
+We welcome your thoughts and opinions about our products.<br /> 
+<textarea name="Comments" cols="30" rows="5">Type your comments 
+here.</textarea> 
+
+<label>Name:</label><br>
+  <input type="text"><br><br>
+
+  <!-- Repeat to simulate large form -->
+  <label>Email:</label><br>
+  <input type="email"><br><br>
+
+  <label>Message:</label><br>
+  <textarea id="seee" rows="10"></textarea><br><br>
+</form>
+
+<br />
+
+ <form> 
+How would you like to receive more information about our company?<br /> 
+<input type="radio" name="ContactMe" value="e-mail"> e-mail<br /> 
+<input type="radio" name="ContactMe" value="phone"> phone<br /> 
+ <input type="radio" name="ContactMe" value="fax"> fax<br /> 
+<input type="radio" name="ContactMe" value="mail"> regular mail<br />
+<input type="radio" name="ContactMe" value="fax" checked="checked"> linklden<br />  
+
+</form>
+ 
 
   </body>        
 
