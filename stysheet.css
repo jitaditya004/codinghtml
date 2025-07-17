@@ -400,5 +400,53 @@ element to none, like this for a p (paragraph) element:
  display: block;
  }*/
 
- 
+ /*js example*/
 
+  #hello div {
+ height: 20px;
+ width: 40px;
+ background-color: white;  /*each div above button,has white background, looks empty as no text*/
+      }
+
+
+  .hide {
+ display: none;
+      }
+ .square {
+ height: 100px;
+ width: 100px;
+ background-color: yellow;
+      }
+ .square.blue {
+ background-color: blue;
+      }     
+
+
+
+
+
+
+    /* Initial square style */
+    #shape4 {
+      height: 100px;
+      width: 100px;
+      background-color: yellow;
+    }
+
+    /* Circle style */
+    .circle {
+      border-radius: 50%;
+    }
+
+      
+
+/*display: inline-block
+
+The element stays in line with other elements (like inline elements).
+
+But it can have width, height, padding, and margin (like block elements).
+*/
+
+
+
+ /*js example ends*/     

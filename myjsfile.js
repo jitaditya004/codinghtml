@@ -2060,6 +2060,14 @@ document.addEventListener("DOMContentLoaded",function(){
     } 
     //263
 
+    
+
+
+ let el = document.createElement("p");  
+ //el.innerText = Math.floor(Math.random() * 100);
+ el.innerText="i added this from js AHAHAHAH";
+ document.body.appendChild(el);
+
 
 
     
@@ -2072,6 +2080,984 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
    function reveal2(el){
- console.log(el.parentElement);
+ console.log(el.parentElement); //body is parent of button, so output is body
  }
 
+
+function toggleDisplay(){
+ let p = document.getElementById("magic");
+        if(p.style.display === "none") {
+          p.style.display = "block";
+        } 
+        else {
+          p.style.display = "none";
+        }
+ }
+
+
+
+
+ function rainbowify(){      //function, creates each "block" of colour, on below another,and gives colour according to their names.
+ //let divs = document.getElementById("hello");
+ let container=document.getElementById("hello");
+ let divs=container.getElementsByTagName("div");
+ for(let i = 0; i < divs.length; i++) {
+          divs[i].style.backgroundColor = divs[i].id;  
+    }
+  }
+
+//js inside script and css inside style tags in html
+
+ function disappear(){ 
+ document.getElementById("shape").classList.add("hide"); //This adds a CSS class named hide to the HTML element with id="shape".
+  }
+
+
+   function change(){
+        document.getElementById("shape2").classList.remove("blue");
+      }
+
+
+ function changeVisibility(){
+        document.getElementById("shape3").classList.toggle("hide");
+      }
+
+
+
+
+
+   function changeAttr() {
+      let el = document.getElementById("shape4");
+
+      // Change style
+      el.setAttribute("style", "background-color: red; border: 2px solid black; height: 100px; width: 100px;"); 
+
+      // Add circle class (to make it round)
+      el.setAttribute("class", "circle");
+
+      // Change the ID (optional)
+      el.setAttribute("id", "new");
+
+    }
+
+    /*they overwrite styles and thus removed previous height and width,instead can use this,
+    function changeAttr() {
+  let el = document.getElementById("shape4");
+  el.style.backgroundColor = "red";
+  el.style.border = "2px solid black";
+  el.classList.add("circle");
+  el.id = "new";
+}
+  changes only whats needed
+*/
+//276
+/*There is one special condition, though; 
+one element can only have one event handler as an HTML attribute. So, if it has an 
+onclick handler, it cannot have an onmouseover handler as well.*/
+
+// document.getElementById("square").addEventListener("click",changeColor); 
+//removed 'on' prefix from onclick
+
+/* window.onload = function() {
+  // whatever needs to happen after loading
+  // for example adding event listeners to elements
+ }*/
+
+document.addEventListener("DOMContentLoaded",function(){
+    
+        document.getElementById("squarer").addEventListener("click",changeColor); //event,function
+  
+});
+
+
+ function changeColor(){
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+        this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`; //use ``
+  }
+
+
+  /*. For example, focus, blur, focusin, focusout, mouseout, 
+mouseover, keydown, keypress, and keyup*/
+
+ function addRandomNumber(){
+        let el = document.createElement("p");
+        el.innerText = Math.floor(Math.random() * 100);
+        document.body.appendChild(el);
+      }
+
+
+ //document.getElementById("unique").onclick = function() { magic(); };
+// document.getElementById("unique").addEventListener("click", magic);
+//same thing, we can send paramters in magic function
+
+// document.getElementById("unique").addEventListener("click", function() { magic(arg1, arg2) });
+
+
+
+/* window.onload = function() {
+ // whatever needs to happen after the page loads goes here
+ }*/
+
+//domcontentloaded
+// <body onload="unique()"></body> ---html
+
+
+
+/* ondblclick: when the mouse is double-clicked
+ • onmousedown: when the mouse clicks on top of an element without the click 
+being released
+ • onmouseup: when the mouse click on top of an element is released
+ • onmouseenter: when the mouse moves onto an element
+ • onmouseleave: when the mouse leaves an element and all of its children
+ • onmousemove: when the mouse moves over an element
+ • onmouseout: when the mouse leaves an individual element 
+• onmouseover: when the mouse hovers over an element*/
+
+
+ function changeColor2() {
+ document.getElementById("divvy").style.backgroundColor = 
+"blue";
+  }
+//dont give same name to diff functions
+
+
+/*DOMContentLoaded fires as soon as the HTML is fully parsed, without waiting for images or CSS.
+
+window.onload waits for everything (images, stylesheets, etc.) — which can delay your script.*/
+
+
+
+
+
+document.addEventListener("DOMContentLoaded",function(){
+ 
+        console.log("hi");
+        document.getElementById("divvy2").addEventListener("mousedown",function() { changeColor3(this, "green"); }); 
+
+        document.getElementById("divvy2").addEventListener("mouseup",function() { changeColor3(this, "yellow"); }); 
+
+        document.getElementById("divvy2").addEventListener("dblclick",function() { changeColor3(this, "black"); }); 
+
+        document.getElementById("divvy2").addEventListener("mouseout",function() { changeColor3(this, "blue"); }); 
+
+      
+  });
+     console.log("hi2"); 
+      function changeColor3(el, color) {
+        el.style.backgroundColor = color;
+      }
+
+
+
+// console.dir(event);
+
+
+
+
+
+/*You wrapped window.onload = function() inside a DOMContentLoaded listener, which is not how window.onload should be used.
+
+That overrides the real window.onload assignment and never runs, so your divvy2 event listeners are never added.
+
+*/
+
+/* Two other events that are often combined with input boxes are onchange and onblur. 
+onchange gets triggered when an element changes, for example, when the value of 
+an input box changes. onblur gets triggered when an object goes out of focus; for 
+example, when you have the cursor in one input box and the cursor goes to another 
+input box, the onblur event of the first input box will get triggered.*/
+/* onkeypress gets triggered, 
+well, you may have guessed this, whenever a key gets pressed. Pressing means here 
+when the button is pressed and released. If you want an event to happen as soon as 
+the button is pressed (so before releasing), you can use the onkeydown event. If you 
+want the event to happen on release, you can use the onkeyup event.*/
+
+
+
+// event.key;
+
+/* One other thing might have caught your eye: onpaste="return false". 
+This is to deal with smart people who copy and paste numbers to a non-numeric 
+field or other characters to a numeric field and still manage to get illegal characters 
+in there.  309*/
+
+
+
+/* <form onsubmit="doSomething()">
+ <input type="submit" value="send">
+<form action="anotherpage.html" method="get" onsubmit="doStuff()">
+
+this just means that values get sent via the URL. 
+URLs look like this when you use get:
+ www.example.com/anotherpage.html?name=edward
+ After the question mark, the variables that are sent along are shown in key-value 
+pairs. This is the form that created the URL when edward was inserted for name.
+
+*/
+
+/* anotherpage.html can use the variables from the URL. This can be done in the 
+JavaScript of anotherpage.html doing something like this:
+ <!doctype html>
+ <html>
+  <body>
+    <script>
+      let q = window.location.search; 
+      let params = new URLSearchParams(q); 
+      let name = params.get("name");
+      console.log(name);
+    </script>
+  </body>
+ </html>*/
+
+
+
+ /*method="GET": Sends form data in the URL (like this: receiver.html?name=John).
+ name="name": The key used in the URL. If user types "John", URL becomes receiver.html?name=John
+
+ window.location.search
+→ gets the query string part of the URL
+→ For example: ?name=John
+
+new URLSearchParams(q)
+→ Turns ?name=John into a searchable object.
+
+params.get("name")
+→ Extracts the value of "name" → here, it's "John".
+
+console.log(name)
+→ Shows "John" in the browser console.
+ */
+//327
+
+
+
+
+document.addEventListener("DOMContentLoaded",function(){
+
+document.getElementById("divvy2").addEventListener("click", function(event) {
+  console.dir(event);
+});  //shows event on clicking 
+
+})
+
+
+console.log("THIS IS THE END PART YOOOOOOOOOOOOOOOOOOOO");
+
+
+
+ let text = "I love Javascript!"; //case sensitive, j is capital so null
+ console.log(text.match(/javascript/));
+console.log(text.match(/javascript/i)); //place "i" to make it case sensitive
+
+
+
+
+let sentence = "My name is Alice Smith";
+
+let match = sentence.match(/My name is (\w+) (\w+)/);
+//                                     ↑       ↑     ↑
+//                                 group 1   space  group 2
+
+console.log(match);
+console.log(match[1]); // "Alice"
+console.log(match[2]); // "Smith"
+
+
+
+text = "My name is Alice Smith";
+match = text.match(/My name is (?<first>\w+) (?<last>\w+)/);
+
+console.log(match);
+console.log(match.groups.first); // "Alice"
+console.log(match.groups.last);  // "Smith"
+/*\w+ = one or more word characters (a–z, A–Z, 0–9, _)
+
+The parentheses ( ) create capturing groups
+
+So:
+
+Group 1: "Alice"
+
+Group 2: "Smith"*/
+
+
+
+ text = "I love JavaScript!";
+ console.log(text.match(/javascript|nodejs|react/i));
+
+text = "I love React and JavaScript!";
+ console.log(text.match(/javascript|nodejs|react/i));
+
+ /* the expression matches either javascript, nodejs, or react.*/
+
+/* If we wanted to find all matches, we could specify the global modifier, g*/
+
+  text = "I love React and JavaScript!";
+ console.log(text.match(/javascript|nodejs|react/gi));//case insensitive and global
+
+
+/* search for a string of only one 
+character equal to a, b, or c. */
+ text = "d";
+ console.log(text.match(/[abc]/)); //null as text has no a or b or c
+  console.log(text.match(/[abcd]/));
+console.log(text.match(/[a-d]/));//in short,range of character
+ 
+text = "t";
+ console.log(text.match(/[a-zA-Z]/));//any letter,uppercase or lowercase
+ console.log(text.match(/[a-z]/i));//same as up
+  console.log(text.match(/[a-zA-Z0-9]/));//numbers as well
+
+ text = "Just some text.";
+ console.log(text.match(/./g));
+ /* Since it has the global modifier, it is going to match any character*/
+ text = "Just some text.";
+ console.log(text.match(/\./g));//dot only 
+
+  text = "I'm 29 years old.";
+ console.log(text.match(/\d/g)); //matches digits 
+
+  text = "Coding is a lot of fun!";
+ console.log(text.match(/\s/g));//matches whitespace
+
+
+ text = "In the end or at the beginning?";
+ console.log(text.match(/\bin/gi));// \b, which matches text only when it's at the beginning of a word not a sentence. 
+let text1 = "the end or in the beginning?";
+ console.log(text1.match(/\bin/gi));//here 'in' is a seperate word
+let text2 = "the end or NOWin the beginning?";
+ console.log(text2.match(/\bin/gi)); //null
+
+
+
+  text = "I love JavaScript!";
+ console.log(text.match(/(love|dislike)\s(javascript|spiders)/gi));//we can group using()
+
+ text = "I love JavaScript!";
+ console.log(text.match(/[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]/g));//any first four combination of a WORD
+console.log(text);
+console.log(text.match(/[a-zA-Z0-9]{4}/g));//shorter, square bracket btw
+/*here only 3 words output as it ignores overlapping characters*/
+
+
+ text = "You are doing great! nng gg nneg nn";
+ console.log(text.match(/n?g/gi));/* This looks for a g character that may or not may be preceded by an n*/
+//optional quatifier, zero or 1
+
+ text = "123123123";
+ console.log(text.match(/(123)+/));//cant be empty as its not closure
+
+
+ text="123123123a";
+console.log(text.match(/(123)*a/)); //
+
+
+text = "abcabcabc";
+ console.log(text.match(/(abc){1,2}/)); // {min, max} max--abcabc
+
+
+ text = "I love JavaScript!";
+ console.log(text.match(/(?<language>javascript)/i));//to specify groups, we have to name them
+
+
+ text = "That's not the case.";
+ console.log(text.search(/Case/i));//15 , starting index of the match
+
+
+
+ text = "Coding is fun. Coding opens up a lot of opportunities.";
+ console.log(text.replace("Coding", "JavaScript"));// only first coding is replaced
+
+
+ text = "Coding is fun. Coding opens up a lot of opportunities.";
+ console.log(text.replace(/Coding/g, "JavaScript")); //g used, all coding is replaced
+
+
+
+ let emailPattern = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g;
+
+ let validEmail = "maaike_1234@email.com";
+ let invalidEmail = "maaike@mail@.com";
+ console.log(validEmail.match(emailPattern));
+ console.log(invalidEmail.match(emailPattern));//null
+
+
+
+
+  function test(a, b, c) {
+  console.log("first:", a, arguments[0]); //arguments[i] can also be used
+  console.log("second:", b, arguments[1]);
+  console.log("third:", c, arguments[2]);
+ }
+ test("fun", "js", "secrets");
+
+
+  function test1(a, b, c) {
+  a = "nice";
+  arguments[1] = "JavaScript"; //changes b
+  console.log("first:", a, arguments[0]);
+  console.log("second:", b, arguments[1]);
+  console.log("third:", c, arguments[2]);
+ }
+ test1("fun", "js", "secrets");
+//modern way is to use param, rest parameter
+
+
+
+ x11 = 5;
+ console.log(x11);
+ var x11;// very hard to read, unpredictable
+
+
+
+  function sayHi() {
+  greeting = "Hello!";//not declared,JavaScript did it for us by adding a greeting variable to the top level 
+ console.log(greeting);
+ }
+ sayHi();
+
+
+
+//use strict at top of file for whole file
+  function sayHii() {
+    "use strict";//recommanded to use, not accidentally creating global variables
+  greeting1e = "Hello!";//not declared,JavaScript did it for us by adding a greeting variable to the top level 
+ //console.log(greeting1e);//error
+ }
+ //sayHii();
+
+
+
+/*You can use the menu options to move to the next breakpoint, stop 
+debugging, or restart the breakpoint sequence. Press the play icon to move to 
+the next breakpoint. It will update to have a value of 5, as specified by line 1, 
+and pause at the first breakpoint. Note that the highlighted line has not been 
+run yet:          Press the play icon once more, and the script will run until it hits the next 
+breakpoint, at which point the value of the variable will update as a result of 
+the code on line 2:          Once the last breakpoint is reached you will only see options to restart or 
+stop the debugger. If you press stop, it will end the debugging process:*/
+
+
+/*
+
+ try {
+  somethingVeryDangerous();
+ } catch (e) {
+ if (e instanceof TypeError) {
+ // deal with TypeError exceptions
+  } else if (e instanceof RangeError) {
+  } else if (e instanceof EvalError) {
+  } else {
+ //deal with all other exceptions
+ throw e; //rethrow
+  }
+ }
+
+
+*/
+
+
+/*
+try {
+  trySomething();
+ } catch (e) {
+ console.log("Oh oh");
+ } finally {
+ console.log("Error or no error, I will be logged!");
+
+
+
+ function somethingVeryDangerous() {
+ throw RangeError();
+ }
+ }*/
+
+
+
+
+function testError(type) {
+  try {
+    if (type === "type") {
+      throw new TypeError("This is a TypeError");
+    } else if (type === "range") {
+      throw new RangeError("This is a RangeError");
+    } else if (type === "custom") {
+      throw new Error("This is a generic custom error");
+    } else {
+      console.log("No error thrown");
+    }
+  } 
+  catch (err) {
+    if (err instanceof TypeError) {
+      console.log("Caught a TypeError: " + err.message);
+    } else if (err instanceof RangeError) {
+      console.log("Caught a RangeError: " + err.message);
+    } else {
+      console.log("Caught some other error: " + err.message);
+    }
+  } finally {
+    console.log("The finally block always runs!");
+  }
+}
+
+// 🧪 Test different error types
+testError("type");
+testError("range");
+testError("custom");
+testError("none"); // no error
+/*creating an error object of type TypeError, and passing a message — the string "This is a TypeError"*/
+
+//352
+/*
+ document.cookie = "name=Maaike;favoriteColor=black";
+
+  let cookie = decodeURIComponent(document.cookie);
+ let cookieList = cookie.split(";");//make array of info
+ for (let i = 0; i < cookieList.length; i++) {
+ let c = cookieList[i];
+ if (c.charAt(0) == " ") {
+    c = c.trim();  //(remove the whitespace in front and at the back)
+
+  }
+ if (c.startsWith("name")) {
+    alert(c.substring(5, c.length)); 
+  }
+ }
+*//*An HTTP request is a message sent by your browser (or client) to a server to ask for some data — like a webpage, image, or result from a search.*/
+/*
+retrieve a key by index:
+ 
+window.localStorage.key(0);
+ 
+In this case, the key is name. In order to get the associated value, we can do this:
+ 
+ window.localStorage.getItem(window.localStorage.key(0));
+
+ We can also remove key-value pairs like this:
+ 
+ window.localStorage.removeItem("name");
+ 
+ And we can remove all the key-value pairs from the local storage in one call:
+ 
+ window.localStorage.clear();
+*/
+
+//358
+/* 
+example of json///key always in quotes and values in quotes only when strings
+{
+ "name" : "Malika",
+ "age" : 50,
+ "profession" : "programmer",
+ "languages" : ["JavaScript", "C#", "Python"], //array , square brackets
+ "address" : {                                //object in object
+        "street" : "Some street",
+        "number" : 123,
+        "zipcode" : "3850AA",
+        "city" : "Utrecht",
+        "country" : "The Netherlands"
+  }   
+}
+
+we can also make list of objects
+
+
+ {
+    "companies": [
+        {
+            "name": "JavaScript Code Dojo",
+            "addresses": [
+                {
+                    "street": "123 Main street",
+                    "zipcode": 12345,
+                    "city" : "Scott"
+                },
+                {
+                    "street": "123 Side street",
+                    "zipcode": 35401,
+                    "city" : "Tuscaloosa"
+                }
+            ]
+        },
+        {
+            "name": "Python Code Dojo",
+            "addresses": [
+                {
+                    "street": "123 Party street",
+                    "zipcode": 68863,
+                    "city" : "Nebraska"
+                },
+                {
+                    "street": "123 Monty street",
+                    "zipcode": 33306,
+                    "city" : "Florida"
+                }
+            ]
+        }
+    ]
+ }
+
+
+ */
+
+
+ str = "{\"name\": \"Maaike\", \"age\": 30}"; //escaped double quotes used
+  obj = JSON.parse(str);  //str to json obj
+ console.log(obj.name, "is", obj.age);
+
+
+ dog = {
+ "name": "wiesje",
+ "breed": "dachshund"
+ };
+ let strdog = JSON.stringify(dog); //jjson obj to str
+ console.log(typeof strdog);
+ console.log(strdog);
+
+
+//callbacks
+/*
+ function doSomething(callback) {  
+    callback();
+ }
+ function sayHi() {
+    console.log("Hi!");
+ }
+ doSomething(sayHi);
+ */
+
+/*getGrade(85, judge());
+👉 You’re calling the function immediately and passing its return value — not the function itself.
+
+But we want to pass the function as a value, so that getGrade() can call it later. That’s why we just pass:*/
+/*A callback is a function that is passed to another function as an argument, so it can be called (back) later.*/
+
+
+
+
+
+
+  function judge(grade) {
+    switch (true) {
+      case grade === "A":
+        console.log("You got an", grade, ": amazing!");
+        break;
+      case grade === "B":
+        console.log("You got a", grade, ": well done!");
+        break;
+      case grade === "C":
+        console.log("You got a", grade, ": alright.");
+        break;
+      case grade === "D":
+        console.log("You got a", grade, ": hmmm...");
+        break;
+      default:
+        console.log("An", grade, "! What?!");
+    }
+  }
+
+  function getGrade(score, callback) {
+    let grade;
+
+    switch (true) {       //switch true used,so like whichever case is true is selected.
+      case score >= 90:
+        grade = "A";
+        break;
+      case score >= 80:
+        console.log(score); // Optional debug log
+        grade = "B";
+        break;
+      case score >= 70:
+        grade = "C";
+        break;
+      case score >= 60:
+        grade = "D";
+        break;
+      default:
+        grade = "F";
+    }
+
+    callback(grade);
+  }
+
+  getGrade(85, judge); // Example call
+
+
+/* setInterval(encourage, 500); //callback
+ function encourage() {
+ console.log("You're doing great, keep going!");
+ }*/
+/* You can call these parameters anything you want, but resolve or 
+res and reject or rej are most common.*/
+
+
+
+
+  let promise33 = new Promise(function (resolve, reject) {
+    let x = 20;
+    if (x > 10) {
+      resolve(x);
+    } else {
+      reject("Too low");
+    }
+  });
+
+  promise33.then(
+    function (value) {
+      console.log("Success:", value);//resolve
+    },
+    function (error) {
+      console.log("Error:", error);//reject
+    }
+  );  //semicolons /* .then() is always asynchronous — it runs after the current synchronous code finishes.*/
+
+
+
+ promise = new Promise((resolve, reject) => {
+    resolve("success!");
+ })
+ .then(value => {
+        console.log(value);
+        return "we";//next then uses this 'we'
+    })
+    .then(value => {
+        console.log(value);
+        return "can";
+    })
+    .then(value => {
+        console.log(value);
+        return "chain";
+    })
+    .then(value => {
+        console.log(value);
+        return "promises";
+    })
+    .then(value => {
+        console.log(value);
+    })
+    .catch(value => {
+        console.log(value);
+    })
+
+/*last block is a catch() 
+function. If any of the functions were to result in a rejection and the Promise were 
+therefore rejected, this catch() block would be executed and print whatever the 
+reject() function sent to the catch() method. */
+
+  promise = new Promise((resolve, reject) => {
+    reject("oops... reject");
+    })
+    .then(value => {
+        console.log(value);
+        return "we";
+    })
+    .then(value => {
+        console.log(value);
+        return "can";
+    })
+    .then(value => {
+        console.log(value);
+        return "chain";
+    })
+    .then(value => {
+        console.log(value);
+        return "promises";
+    })
+    .then(value => {
+        console.log(value);
+    })
+    .catch(value => {
+        console.log(value);
+    })
+/*
+A Promise is an object that represents something that will finish later — like downloading a file or waiting for a timer.
+await keyword to wait until 
+the Promise is done. await only works in an asynchronous function.
+ With the async keyword, we can make a 
+function return a Promise. This makes the Promises nicer to read and look a lot like 
+synchronous (non-concurrent) code.asynchronous--together*/
+
+
+ function saySomething(x) {
+ return new Promise(resolve => {
+ setTimeout(() => {
+            resolve("something" + x);
+        },2000); //wait 2sec before calling resolve,setTimeout(..., 2000)
+    });
+ }
+ async function talk(x) {
+ const words =await saySomething(x);
+ console.log(words);
+ }
+ talk(2);//all talk function start together and gave output after 2 sec
+ talk(4);
+ talk(8);
+/*"This function might wait for something using await."
+
+It always returns a promise, even if you don't return anything.
+await pauses the async function until the promise is finished */
+async function talkww(x) {
+ const words = saySomething(x);
+ console.log(words);
+ }
+talkww(10);//prints before the ending console,not after everything,promise pending
+/* JavaScript is a single-threaded language. A thread 
+in this context means a path of execution. If there is only a single path, this means that 
+tasks will have to wait for one another and only one thing can happen at a time.*/
+//call stack/*The setTimeout() task gets outsourced to the browser's web API
+/* When it's done, this appears in a special place: the callback 
+queue. When the call stack is empty (and only then!), the event loop will check the 
+callback queue for work to do. If there are any callbacks waiting, they'll be executed, 
+one by one. After every action, the event loop will check the call stack for work first.
+
+*/
+
+ console.log("Hi there");
+ setTimeout(() => console.log("Sorry I'm late"), 1000); //1sec
+ console.log(add2(4, 5));
+ function add2(x, y) {
+    console.log("eventloop")
+    return x + y;
+ }
+
+console.log("Hi there");
+ setTimeout(() => console.log("Sorry I'm late"), 0); //at end but 0 secs
+ console.log(add22(4, 5));
+ function add22(x, y) {
+    console.log("eventloop")
+    return x + y;
+ }
+
+
+//NEVER USE TWO WINDOWS.ONLOAD
+
+document.addEventListener("DOMContentLoaded",function(){
+  
+/*
+  function init() {
+    console.dir(navigator.geolocation);
+  }
+
+    function init2() {
+    navigator.geolocation.getCurrentPosition(showGeoPosition);
+  }
+
+  function showGeoPosition(data3) {
+    console.dir(data3);
+  }
+
+init();
+init2();
+*/
+
+
+        function init() {
+          console.dir(navigator.geolocation);
+        }
+
+        function init2() {
+          navigator.geolocation.getCurrentPosition(showGeoPosition, showError);
+        }
+
+        function showGeoPosition(data3) {
+          console.log(data3);
+          document.getElementById("outputasd").innerText =
+            "Latitude: " + data3.coords.latitude +
+            "\nLongitude: " + data3.coords.longitude;
+        }
+
+        /*function showError(error) {
+          console.error("Geolocation error:", error);
+          document.getElementById("output").innerText =
+            "Error getting location: " + error.message;
+        }*/
+
+            function showError(error) {
+  console.error("Geolocation error:");
+  console.error("Code:", error.code);
+  console.error("Message:", error.message || "No message");
+  document.getElementById("output").innerText =
+    "Error getting location. Code: " + error.code +
+    "\nMessage: " + (error.message || "No message");
+}
+
+
+        init();
+        init2();
+
+
+
+
+});
+//i skipped to 428, do canvas
+
+// <script src="https://linktolibrary.com/librarycode.js"></script>
+//jquery   $(selector).action();
+//d3
+//In computer science, an in-place algorithm is an algorithm that operates directly on the input data structure without requiring extra space proportional to the input size. 
+//Least Recently Used (LRU)
+
+
+
+
+
+
+
+
+ // ✅ Step 1: Set the path of the JSON file
+    const url = 'list.json'; 
+    // This is the filename of your JSON file.
+    // Make sure this file is in the same folder as your HTML.
+
+    // ✅ Step 2: Use fetch() to request the JSON file
+    fetch(url)
+      .then(response => {
+        // This block runs when the file is successfully fetched
+        // But we first check if the response is okay (200 OK)
+        if (!response.ok) {
+          // If there's an error, we throw it so the catch() block handles it
+          throw new Error("HTTP error " + response.status);
+        }
+
+        // ✅ Step 3: Convert the response into a JavaScript object
+        return response.json(); // This returns a promise with parsed JSON
+      })
+
+      .then(data => {
+        // ✅ Step 4: The JSON data is ready here as a JavaScript array/object
+        // Example: [{id:1, name:"Alice"}, {id:2, name:"Bob"}]
+
+        // We loop through the array using forEach
+        data.forEach(item => {
+          // For each item (object), we print its details in the console
+          console.log(`ID: ${item.id}, Name: ${item.name}, Age: ${item.age}`);
+        });
+      })
+
+      .catch(error => {
+        // ✅ This runs if any error happens (e.g. file not found)
+        console.error('Error fetching JSON:', error);
+      });
+
+
+//node.js or else php,java or c# for backend
+//node.js runtime environment, express is framework in it.
+/*Backticks ( ` ... ` )
+
+The ${...} syntax to insert variables
+
+let age = 21;
+console.log(`You are ${age} years old.`); 
+
+// Output: You are 21 years old.
+backtick**** remember not ""
+*/
+
+
+
+
+
+
+ console.log("YOOOOOOOOOOOOOOOOO I MARKED MY ENNDDDDDDDD THIS IS JUST FOR ME")

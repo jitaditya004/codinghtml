@@ -1170,6 +1170,42 @@ here.</textarea>
 </form>
 
 
+
+<!--294-->
+<br />
+
+
+<form id="myform"> 
+
+
+We welcome your thoughts and opinions about our products.<br /> 
+<textarea name="Comments" cols="30" rows="5">Type your comments 
+here.</textarea> 
+
+<label>Name:</label><br>
+  <input type="text"><br><br>
+
+  <!-- Repeat to simulate large form -->
+  <label>Email:</label><br>
+  <input type="email"><br><br>
+
+  <label>Message:</label><br>
+  <textarea id="seee" rows="10"></textarea><br><br>
+</form>
+
+<br />
+
+ <form> 
+How would you like to receive more information about our company?<br /> 
+<input type="radio" name="ContactMe" value="e-mail"> e-mail<br /> 
+<input type="radio" name="ContactMe" value="phone"> phone<br /> 
+ <input type="radio" name="ContactMe" value="fax"> fax<br /> 
+<input type="radio" name="ContactMe" value="mail"> regular mail<br />
+<input type="radio" name="ContactMe" value="fax" checked="checked"> linklden<br />  
+
+</form>
+ 
+
 <!--294-->
 
 
@@ -1228,44 +1264,997 @@ it is in.-->
 <button onclick="reveal2(this)">Click here!</button>
 
 
+  
+<br />
+<p id="magic">I might disappear and appear.</p>
+ <button onclick="toggleDisplay()">Magic!</button>
 
 
+<div id="hello">
+    <div id="red"></div>
+    <div id="orange"></div>
+    <div id="yellow"></div>
+    <div id="green"></div>
+    <div id="blue"></div>
+    <div id="indigo"></div>
+    <div id="violet"></div>
+</div>
+    <button onclick="rainbowify()">Make me a rainbow</button>
+
+
+
+  <div id="shape" class="square blue"></div>    <!--actually two classes inside class tag-->
+    <button onclick="disappear()">Disappear!</button>   
+
+
+ <div id="shape2" class="square blue"></div>
+    
+    <button onclick="change()">Change!</button>
+
+<br />
+<div id="shape3" class="square"></div>
+    
+    <button onclick="changeVisibility()">Magic!</button>
+
+
+<br />
+
+ <div id="shape4" class="square"></div>
+
+  <button onclick="changeAttr()">Change attributes...</button>
+
+
+
+
+<div id="squarer" style="width:100px;height:100px;background-color:grey;">Click for magic</div>
+
+
+
+<br />
+ <button onclick="addRandomNumber()">Add a number</button>
+
+
+ <!--
+ <p id="unique2" onclick="magic()">Click here for magic!</p>
+-->
+
+ <div id="divvy" onmouseover="changeColor2()" style="width: 100px; 
+height: 100px; background-color: rgb(192, 255, 3);"></div>
+
+
+<br />
+
+ <div id="divvy2" style="width: 100px; height: 100px; background-color: rgb(0, 255, 115);"></div>
+
+
+
+ <button type="button" onclick="triggerSomething()">Click</button>
+  <script>
+    function triggerSomething() {
+      console.dir(event.target);
+    }
+  </script>
+
+  <!-- When to Always Use type="button"
+When you're using JavaScript to handle things manually.
+
+When the button is inside a form but not meant to submit it.-->
+
+
+<br /><br />
+ <div id="welcome">Hi there!</div>
+
+    <form>
+      <input type="text" name="firstname" placeholder="First name" />
+      <input type="text" name="lastname" placeholder="Last name" />
+      <input type="button" onclick="sendInfo()" value="Submit" />
+    </form>
+
+    <script>
+      function messagess(m) {
+        document.getElementById("welcome").innerHTML = m; // innerHTML means: "whatever is inside this tag — replace it. 
+      }
+ function sendInfo() {
+      let p = event.target.parentElement;//this gets the parent element of the element that triggered the event.
+      messagess("Welcome " + p.firstname.value + " " + p.lastname.value);
+ }
+ /*event.target is the <button> that was clicked.
+
+event.target.parentElement is the <form> — the button's parent.
+
+Now p refers to the form.*/
+
+  </script>
+
+
+
+
+  
+ <style>
+      #boddy div {
+        border: 1px solid black;
+        margin-left: 5px;
+      }
+    </style>
+
+<div id="boddy">
+
+ <div id="message">Bubbling events</div>
+    <div id="output">
+      1
+      <div>
+        2
+        <div>
+          3
+          <div>
+            4
+          <div>5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+   <script>
+
+ function bubble() {
+ console.log(this.innerText); //print text inside each div
+  }
+
+
+  let boddy = document.getElementById("boddy");
+  let divs = boddy.getElementsByTagName("div");
+ for (let i = 0; i < divs.length; i++) {
+        divs[i].addEventListener("click", bubble); //basically adding function on each div,adding event manually on each div takes time.
+  }
+
+
+  /*d it will execute them inside out. So it will start with the 
+innerText of only 5, then 45, until the last one, 12345
+ This is called event bubbling. It's what happens when you trigger the handlers on an 
+element. It runs its own events first, then its parents, and so on. It is called bubbling 
+because it goes up from the inner event to the outer, like water bubbles going up.*/
+
+/*If you click the <div> that contains 4, you might see:
+4
+5
+Because 5 is nested inside 4.
+*/
+/*function bubble(event) {
+  event.stopPropagation();  // Stop bubbling to parents
+  console.log(this.innerText.trim());
+}
+*/
+
+
+
+
+  </script>
+
+
+
+
+
+ 
+ <style>
+      #boddy2 div {
+        border: 1px solid black;
+        margin-left: 5px;
+      }
+    </style>
+
+<div id="boddy2">
+
+ <div id="message2">Bubbling events</div>
+    <div id="output2">
+      1
+      <div>
+        2
+        <div>
+          3
+          <div>
+            4
+          <div>5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+   <script>
+
+ function bubble() {
+ console.log(this.innerText); //print text inside each div
+  }
+
+
+  let boddy2 = document.getElementById("boddy2");
+  let divs2 = boddy2.getElementsByTagName("div");
+ for (let i = 0; i < divs.length; i++) {
+        divs2[i].addEventListener("click", bubble, true); //basically adding function on each div,adding event manually on each div takes time.
+  }
+//when true it goes outer to inner, opposite of first example
+</script>
+
+
+
+
+
+
+
+ <div id="welcome1">Hi there!</div>
+    <form>
+      <input type="text" name="firstname" placeholder="First name" onchange="logEvent()" />
+
+      <input type="text" name="lastname" placeholder="Last name" onblur="logEvent()" />
+
+      <input type="button" onclick="sendInfo4()" value="Submit" />
+    </form>
+
+    <script>
+
+      function message23(m) {
+ document.getElementById("welcome1").innerHTML = m;
+  }
+  
+      function logEvent() {
+        let p = event.target;
+        if (p.name == "firstname") {
+          message23("First Name Changed to  " + p.value);
+        } else {
+          message23("Last Name Changed to  " + p.value);
+        }
+      }
+      function sendInfo4() {
+        let p = event.target.parentElement;
+        message23("Welcome " + p.firstname.value + " " + p.lastname.value);
+ 
+      }
+
+    </script>
+
+
+
+
+
+<script>
+        
+         function messagea(m) {
+            document.getElementById('wrapper').innerHTML = m;
+        }
+        function numCheck() {
+            messagea("Number: " + !isNaN(event.key));
+            console.log(event.key);
+            return !isNaN(event.key);
+        }
+        function numCheck2() {
+            messagea("Not a number: " + isNaN(event.key));
+            console.log(event.key);
+            return isNaN(event.key);
+        }
+        
+/*event.key returns the actual key pressed by the user on the keyboard as a string.*/
+
+      </script>
+
+
+ <div id="wrapper">JavaScript is fun!</div>
+
+      <input type="text" name="myNum1" onkeypress="numCheck()">
+      <input type="text" name="myNum2" onkeypress="numCheck2()">
+       
+<div id="wrapper">JavaScript is fun!</div>
+      <input type="text" name="myNum1" onkeypress="return numCheck()" onpaste="return false">
+
+      <input type="text" name="myNum2" onkeypress="return numCheck2()"onpaste="return false"> 
+<!--on key press, if numcheck return true then only value is placed in the input box else it blocks it-->
+
+      
+
+
+<!--drag it-->
+ <style>
+ .box {
+ height: 200px;
+ width: 200px;
+ padding: 20px;
+ margin: 0 50px;
+ display: inline-block;
+ border: 1px solid black;
+      }
+ #dragme {
+ background-color: red;
+      }
+    </style>
+
+    <div class="box" ondrop="dDrop()" ondragover="nDrop()">
+      1
+        <div id="dragme" ondragstart="dStart()" draggable="true">
+            Drag Me Please!
+        </div>
+   </div>
+    <div class="box" ondrop="dDrop()" ondragover="nDrop()">2</div>
+
+
+   <script>
+      let holderItem; //the thing we dragging is stored here
+
+      function dStart() {
+        holderItem = event.target;
+      }
+
+
+      function nDrop() {
+        event.preventDefault();
+      }
+
+
+ function dDrop() {
+        event.preventDefault();
+ if (event.target.className == "box") {
+          event.target.appendChild(holderItem);
+        }
+      }
+
+
+/*Normally, when you drag, 
+dropping is not allowed by the design of HTML. In order to allow the drop, you'll 
+have to prevent the default event that means the item you want to drop cannot be 
+dropped. You can do this with:
+ event.preventDefault();*/
+
+    </script>
+
+
+
+
+<br />
+
+<form action="C:\Users\jitad\Desktop\projects\personal-site\index.html" method="get">
+      <input type="text" placeholder="name" name="name" />
+      <input type="submit" value="send" />
+</form>
+
+
+
+
+<br /><br />
+
+<div id="wrappere"></div>
+
+<form onsubmit="return valForm(event)" method="get" action="C:/Users/jitad/Desktop/projects/personal-site/index.html">
+  <input type="text" id="firstName" name="firstName" placeholder="First name" />
+  <input type="text" id="lastName" name="lastName" placeholder="Last name" />
+  <input type="text" id="age" name="age" placeholder="Age" />
+  <input type="submit" value="Submit" />
+</form>
+
+<script>
+
+  function messageq(m) {
+    document.getElementById("wrappere").innerHTML = m;
+  }
+
+  function valForm(event) {
+    let form = event.target;
+
+    if (form.firstName.value.trim() === "") {
+      messageq("Need a first name!!");
+      return false;
+    }
+    if (form.lastName.value.trim() === "") {
+      messageq("Need a last name!!");
+      return false;
+    }
+    if (form.age.value.trim() === "") {
+      messageq("Need an age!!");
+      return false;
+    }
+
+    // All fields are filled
+    messageq(""); // Clear any message
+    return true;
+  }
+  //puts message in div of wrappere so we use innerhtml, we can use html code to see the code being executed.
+</script>
+
+
+
+
+
+
+
+<style>
+ #examp div {
+ background-color: purple;
+ width: 100px;
+ height: 100px;
+ position: relative; /*absoulte or fixed?   absolute--over others. relative separate*/
+    }
+  </style>
+
+<br />
+<div id="examp">
+<button onclick="toTheRight()">Go right</button>
+<div id="block" ></div>
+</div>
+<br /><br />
+
+<script>
+  function toTheRight() {
+    let b = document.getElementById("block"); //select box
+    let x = 0;
+
+    // Store the interval ID so we can clear it
+    let intervalId = setInterval(function () {
+      if (x === 150) {
+        clearInterval(intervalId); // <-- Fix here
+      } else {
+        x++;
+        b.style.left = x + "px";
+      }
+    }, 2);
+  }
+
+/*b.style.left = x + "px";
+x is a number, like 150
+
+"px" is a string, which stands for pixels
+
+JavaScript needs to set styles as strings, so you combine them like this:
+
+If x = 150, then:
+
+b.style.left = "150px";
+If you don’t add "px", the browser doesn’t know the unit, and it won’t move.*/
+
+
+/*setInterval(function, time);
+It runs a function repeatedly every time milliseconds.
+
+In your case:
+function () { ... } is run every 2 milliseconds.
+
+
+To stop it, you use:
+clearInterval(id);
+But to stop it, you need to store the interval’s ID.
+*/
+
+  //style="position: relative; width: 50px; height: 50px; background-color: red;"
+  /* do later--- You can at the same time also set different positions, like style.top, style.bottom, 
+and style.right, or append new elements to create a snow effect, or show constantly 
+driving cars.*/
+</script>
+
+
+
+
+
+<!--
+
+ <input onchange="setCookie(this)" />
+    <button onclick="sayHi('name')">Let's talk, cookie!</button>
+    <p id="hi"></p>
+    
+    <script>
+
+      function setCookie(e) {
+        document.cookie = "name=" + e.value + ";";
+      }
+      function sayHi(key) {
+        let name = getCookie(key);
+        document.getElementById("hi").innerHTML = "Hi " + name;
+      }
+      function getCookie(key) {
+        let cookie = decodeURIComponent(document.cookie);
+        let cookieList = cookie.split(";");
+        for (let i = 0; i < cookieList.length; i++) {
+          let c = cookieList[i];
+          if (c.charAt(0) == " ") {
+            c = c.trim();
+          }
+          if (c.startsWith(key)) {
+            console.log("hi" + c);
+            return c.substring(key.length + 1, c.length);//name=malik, we need to start from 5 to end of string
+          }
+        }
+      }
+
+</script>
+-->
+
+
+
+    <input onchange="setCookie(this)" placeholder="Enter your name" />
+    <button onclick="sayHi('name')">Let's talk, cookie!</button>
+    <p id="hi"></p>
+
+    <script>
+      // Set a cookie from input
+      function setCookie(e) {
+        document.cookie = "name=" + encodeURIComponent(e.value) + "; path=/";
+        console.log(document.cookie);
+      }
+
+      // Get cookie by key
+      function getCookie(key) {
+        let cookieArr = document.cookie.split(";");
+        console.log(cookieArr);
+        for (let i = 0; i < cookieArr.length; i++) {
+          let cookie = cookieArr[i].trim();
+          if (cookie.startsWith(key + "=")) {
+            return decodeURIComponent(cookie.substring(key.length + 1));
+          }
+        }
+        return "";
+      }
+
+      // Show greeting
+      function sayHi(key) {
+        let name = getCookie(key);
+        console.log(name);
+        document.getElementById("hi").innerHTML = "Hi " + name;
+      }
+    </script>
+  
+
+
+
+ <div id="stored"></div>
+    <script>
+      let messageaa = "Hello local storage!";
+     localStorage.setItem("example", messageaa);//key value pair. 
+      if (localStorage.getItem("example")) {
+        document.getElementById("stored").innerHTML =localStorage.getItem("example");
+      }
+
+      window.localStorage.clear();
+
+      /*d turn off the setItem() line before loading the page 
+a second time, it still will output that value, since the information was stored when 
+running the script the first time and never got deleted. Local storage doesn't expire, 
+though it can be manually deleted*/
+    </script>
+
+
+<div id="messagerr"></div>
+
+<script>
+  message = document.getElementById("messagerr");
+
+  if (window.FileReader) {
+    message.innerText = "Good to go!";
+    console.log("its there");
+  } else {
+    message.innerText = "No FileReader :(";
+    console.log("No filereader :(")
+  }
+</script>
+
+
+<!--accessing the .files property of the input element. That’s a FileList object, which is like an array of all selected files.-->
+ <input type="file" onchange="uploadFile(this.files)" /> 
+    <div id="messagedd"></div>
+
+ <script>
+      let messageqw = document.getElementById("messagedd");
+
+      function uploadFile(files) {
+        console.log(files);
+        console.log(files[0]);  //why?see console
+        messageqw.innerText = files[0].name;//Accesses the name of the first file.
+      }
+
+  </script>
+
+
+<!--multiple files-->
+ <input type="file" multiple onchange="uploadFileff(this.files)" />
+    <div id="messageaa"></div>
+
+    <script>
+       let messagex = document.getElementById("messageaa");
+//how
+      function uploadFileff(files) {
+        console.log(files);
+        for (let i = 0; i < files.length; i++) {
+          console.log(files[i]);
+          messagex.innerHTML += files[i].name + "<br>"; //files[1], files[2], etc. will contain the other files.
+        }
+      }
+      //<br> html5 short form
+      //here each time we add a file,it runs a new uploadfile function,adding to the already exisitng written html code, not overwriting.
+    </script>
+
+
+<!--reading files-->
+ <input type="file" onchange="uploadAndReadFile(this.files)" />
+    <div id="messagexxx"></div>
+
+    <script>
+
+ let message43 = document.getElementById("messagexxx");
+
+ function uploadAndReadFile(files) {
+
+        let fr = new FileReader();
+
+        fr.onerror = function () {
+          message43.innerHTML = "Error reading file!";
+        };  //errors during reading
+
+        fr.onload = function (e) {
+          message43.innerHTML = e.target.result;
+        };
+
+
+        fr.readAsText(files[0]); //can use any readAs() method, here radasext as text file
+  }
+
+/*Create FileReader:
+
+let fr = new FileReader(); creates a FileReader object which lets you read the content of files (like .txt, .json, etc.).
+
+Set onload callback:
+
+fr.onload = function (e) { ... }
+
+This function runs after the file is successfully read.
+
+e.target.result contains the file content as a string.
+
+This content is then put inside the div using .innerHTML.
+
+Read the File:
+
+fr.readAsText(files[0]);
+
+Reads the first selected file (files[0]) as plain text.
+
+files is a FileList, so files[0] gives you the first file.*/
+/*e is the event object triggered when the file is finished loading.
+
+e.target refers to the object that fired the event — in this case, it’s the FileReader instance (fr).
+
+e.target.result is the content that was read from the file by FileReader.*/
+
+    </script>
+
+
+
+<!--
+<script>
+   window.addEventListener("load", init);//Once the entire page has fully loaded, run the init() function
+ 
+  function init() {
+    console.dir(navigator.geolocation);
+  }
+
+</script>
+-->
+
+<!--
+<script>
+  window.addEventListener("load", init2);
+
+  function init2() {
+    navigator.geolocation.getCurrentPosition(showGeoPosition);
+  }
+
+  function showGeoPosition(data3) {
+    console.dir(data3);
+  }
+
+/*This asks the browser to get the user's current location.
+
+If the user allows location access, the browser will pass the location data to the showGeoPosition() function.*/
+/*This function receives the location data.
+
+data is a Position object, which contains:
+
+data.coords.latitude
+
+data.coords.longitude
+
+data.coords.accuracy
+
+etc.
+
+console.dir(data) shows the full object in a detailed, expandable format in the console so you can inspect it.*/
+
+</script>
+-->
+
+
+
+    
+<!--
+    <script>
+      window.addEventListener("load", init);
+      window.addEventListener("load", init2);
+
+      function init() {
+        console.log("Geolocation object:");
+        console.dir(navigator.geolocation);
+      }
+
+      function init2() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showGeoPosition, handleError);
+        } else {
+          document.getElementById("output").innerText = "Geolocation not supported.";
+        }
+      }
+
+      function showGeoPosition(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        document.getElementById("output").innerText = `Latitude: ${lat}, Longitude: ${lon}`;
+        console.log(position);
+      }
+
+      function handleError(error) {
+        document.getElementById("output").innerText = `Error: ${error.message}`;
+      }
+    </script>
+  
+  -->
+
+
+ <h2>Geolocation Output:</h2>
+    <div id="outputasd"></div>
+
+
+
+
+
+<canvas id="c1"></canvas><!--by default, a white rectangle that you cannot see--> 
+
+<style>
+ #goodd canvas {
+ border: 1px solid black;
+      }
+</style>
+  
+  <div id="goodd">
+    <canvas id="c22"></canvas>
+  </div>
+  
+    <script>
+       let canvas = document.getElementById("c22");//get element of same id from anywhere
+  let ctx = canvas.getContext("2d");
+
+  canvas.width = 110; // px
+  canvas.height = 110; // px
+
+  ctx.fillRect(20, 40, 60, 60); // Starts at (20,40), 60x60 size
+
+      /*fillrect---You're asking JavaScript to draw a rectangle that:
+ctx.fillRect(20, 40, 100, 100)
+Starts at (20, 40) inside the canvas
+
+Has width: 100 and height: 100
+
+canvas.getContext("2d") returns a 2D rendering context — an object with methods that let you draw shapes, text, images, and more.
+
+The returned object is usually stored in a variable (like ctx) and is used to call drawing methods.
+
+*/
+    </script>
+
+
+
+
+
+<style>
+  #canvas1f {
+    border: 1px solid black;
+  }
+</style>
+
+<canvas id="canvas1f"></canvas>
+
+<script>
+  let canvasaa = document.getElementById("canvas1f");
+  let ctx2 = canvasaa.getContext("2d");
+
+  canvasaa.width = 100;
+  canvasaa.height = 100;
+
+  ctx2.beginPath(); // start a new path!
+  ctx2.lineWidth = 2;
+  ctx2.moveTo(0, 20);     // starting point
+  ctx2.lineTo(50, 100);   // ending point
+  ctx2.stroke();          // draw the line
+</script>
+
+
+
+
+
+
+<br>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <p>Let's play a game!</p>
+    <p>Of hide and seek...</p>
+    <p class="easy">I'm easy to find!</p>
+    <button id="hidebutton">Great idea</button>
+    <button id="revealbutton">Found you!</button>
+    <script>
+      $(document).ready(function () {
+        $("#hidebutton").click(function () {
+          $("p").hide();
+        });
+        $("#revealbutton").click(function () {
+          $(".easy").show();
+        });
+      });
+      /*The $(document).ready(function() { ... }); block makes sure the entire HTML document is fully loaded and parsed before your JavaScript/jQuery code runs. selecting id and class*/
+    </script>
+
+
+
+
+
+
+
+
+ <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        svg {
+            background-color: lightgrey;
+        }
+    </style>
+
+ <svg id="drawing-area" height=100 width=500></svg>
+    <script>
+        let svg = d3.select("#drawing-area");
+        svg.append("circle").attr("cx", 100).attr("cy", 50).attr("r", 20).style("fill","pink");
+             
+
+        svg.append("circle").attr("cx", 200).attr("cy", 20).attr("r", 20).style("fill","black");
+             
+
+        svg.append("circle").attr("cx", 300).attr("cy", 70).attr("r", 20).style("fill","grey");
+             
+
+        /*A pink circle at (100, 50)
+
+A black circle at (200, 20)
+
+A grey circle at (300, 70)
+
+All with radius 20.*/
+    </script>
+
+
+
+
+<!--
+  <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"></script>
+   <script>
+        _.each([1, 2, 3], alert);
+
+        /* makes an alert pop-up box for all the items in the array—in 
+this case, it is making a pop-up for 1, 2, and 3:*/
+    </script>
+  -->
+
+
+
+
+
+<!-- Include React core library -->
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+
+<!-- Include ReactDOM to render React elements into the DOM -->
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+<!-- HTML element where React will render -->
+<div id="root"></div>
+
+<script>
+  // Create a React element: <p>Hi Emile, what's up?</p>
+  let p55 = React.createElement("p", null, "Hi Emile, what's up?");
+  
+  // Render the element inside the 'root' div
+  ReactDOM.render(
+    p55,
+    document.getElementById("root") // ✅ Removed wrong semicolon
+  );
+
+
+/*Script	Purpose
+react.development.js------	Loads the React core. It allows you to create elements like React.createElement, manage state, etc.
+react-dom.development.js-----	Loads ReactDOM, which is responsible for rendering React elements into actual DOM elements in the browser.*/
+/*React handles logic and structure.
+
+ReactDOM handles putting it on the page.*/
+/*React.createElement(type, props, ...children)
+React.createElement("h1", { id: "greeting", style: { color: "red" } }, "Hi there!")
+makes--<h1 id="greeting" style="color:red">Hi there!</h1>
+
+
+ReactDOM.render(whatToRender, whereToRender)
+*/
+
+</script>
+
+
+
+
+
+
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+<script>
+  console.log("HTML ENDDD MARKING HEREEEEEEE LETS GOOOOOOOOO HTMLLLLLLLL")
+</script>
 <!--JS example ends-->
 
-<!--294-->
-<br />
 
 
-<form id="myform"> 
 
 
-We welcome your thoughts and opinions about our products.<br /> 
-<textarea name="Comments" cols="30" rows="5">Type your comments 
-here.</textarea> 
 
-<label>Name:</label><br>
-  <input type="text"><br><br>
+<style>
+    .yellow-line {
+      height: 30px;              /* thickness */
+      background-color: rgb(17, 252, 0); /* color */
+      width: 100%;              /* full width */
+      margin: 20px 0;           /* spacing above and below */
+      border: none;
+    }
+  </style>
+  <div class="yellow-line"></div>
 
-  <!-- Repeat to simulate large form -->
-  <label>Email:</label><br>
-  <input type="email"><br><br>
 
-  <label>Message:</label><br>
-  <textarea id="seee" rows="10"></textarea><br><br>
+
+
+
+
+
+<a href="https://example.com" id="mylink">Go</a>
+
+<script>
+  document.getElementById("mylink").addEventListener("click", function(event) {
+    event.preventDefault();  // ⛔ Stops the browser from going to the link
+    alert("Link click stopped!");
+  });
+</script>
+
+
+
+
+
+<form id="myform222">
+  <input type="text" />
+  <button type="submit">Submit</button>
 </form>
 
-<br />
+<script>
+  document.getElementById("myform222").addEventListener("submit", function(event) {
+    event.preventDefault();  // ⛔ Stops form from refreshing the page
+    alert("Form submission stopped!");
+  });
+</script>
 
- <form> 
-How would you like to receive more information about our company?<br /> 
-<input type="radio" name="ContactMe" value="e-mail"> e-mail<br /> 
-<input type="radio" name="ContactMe" value="phone"> phone<br /> 
- <input type="radio" name="ContactMe" value="fax"> fax<br /> 
-<input type="radio" name="ContactMe" value="mail"> regular mail<br />
-<input type="radio" name="ContactMe" value="fax" checked="checked"> linklden<br />  
 
-</form>
- 
+
 
   </body>        
 
